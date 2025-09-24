@@ -9,15 +9,11 @@ This project demonstrates how to validate a predictive model against the Federal
 - **Model Type**: Logistic regression for loan default prediction
 - **Dataset**: LendingClub accepted and rejected loan applications (2007–2018)
 - **Validation Framework**: SR 11-7 Model Risk Management
-- **Format**: Executable Python notebooks with embedded commentary and visual diagnostics
+- **Format**: Jupyter Notebooks for interactive data exploration
 
 | Notebook | Purpose |
 |---------|---------|
 | `01_model_overview.ipynb` | Define model purpose, assumptions, and business context |
-| `02_data_quality.ipynb` | Assess input data integrity, completeness, and relevance |
-| `03_model_validation.ipynb` | Perform backtesting, sensitivity analysis, benchmarking |
-| `04_documentation.ipynb` | Generate SIPOC diagrams, model lineage, and audit trails |
-| `05_governance_checks.ipynb` | Simulate override logs, usage flags, and approval workflows |
 
 ## Libraries
 
@@ -30,11 +26,9 @@ This project demonstrates how to validate a predictive model against the Federal
 
 ## Linting & Documentation Standards
 
-This project uses [`pydocstyle`](https://www.pydocstyle.org/) to enforce Google-style docstrings across all modules.
-
 ### Linting Rules
 - All public functions must include:
   - Argument descriptions
   - Return types
-  - Raised exceptions (if applicable)
+  - Raised exceptions (if any)
 - Docstrings follow the [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
