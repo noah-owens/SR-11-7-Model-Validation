@@ -19,7 +19,7 @@ This project demonstrates how to validate a predictive model against the Federal
 | `04_documentation.ipynb` | Generate SIPOC diagrams, model lineage, and audit trails |
 | `05_governance_checks.ipynb` | Simulate override logs, usage flags, and approval workflows |
 
-## Tech Used
+## Libraries
 
 - `pandas`, `numpy`, `matplotlib`, `seaborn` — data wrangling and visualization
 - `scikit-learn` — modeling and metrics
@@ -28,7 +28,7 @@ This project demonstrates how to validate a predictive model against the Federal
 - `python-dotenv` — environment variable management
 - `pydocstyle` — docstring linting
 
-## ✅ Linting & Documentation Standards
+## Linting & Documentation Standards
 
 This project uses [`pydocstyle`](https://www.pydocstyle.org/) to enforce Google-style docstrings across all modules.
 

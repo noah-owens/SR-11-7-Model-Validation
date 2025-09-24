@@ -1,4 +1,6 @@
 import pandas as pd
+from pandas.io.formats.style import Styler
+
 
 def generate_data_dictionary(df: pd.DataFrame, sample_row: int = 0) -> pd.DataFrame:
     """Generate a data dictionary from a DataFrame.
@@ -11,12 +13,12 @@ def generate_data_dictionary(df: pd.DataFrame, sample_row: int = 0) -> pd.DataFr
         pd.DataFrame: A simple data dictionary
     """
     data_dict = pd.DataFrame({
-        'Column Name': df.columns,
         'Data Type': df.dtypes.astype(str),
         'Missing Values': df.isnull().sum().values,
         'Unique Values': df.nunique().values,
         'Sample Value': df.iloc[sample_row].values
-    })
+    }, index=df.columns)
+    
+    data_dict.index.name = 'Column Name'
 
     return data_dict
-
