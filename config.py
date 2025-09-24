@@ -4,8 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def get_env_var(key: str) -> str:
-    """
-    Pull value from .env based on provided key.
+    """Pull value from .env based on provided key.
 
     Args:
         key (string): key to key-value pair in .env.
@@ -22,8 +21,7 @@ def get_env_var(key: str) -> str:
     return value
 
 def validate_path(path: str) -> str:
-    """
-    Determine if a provided filepath is valid.
+    """Determine if a provided filepath is valid.
 
     Args:
         path (string): filepath to be checked.

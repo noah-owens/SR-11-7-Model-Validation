@@ -1,6 +1,6 @@
 # SR 11-7 Model Validation Portfolio
 
-![Docstring Lint](https://github.com/noah-owens/SR-11-7-Model-Validation/actions/workflows/docstring-lint.yml/badge.svg)
+[![Docstring Lint](https://github.com/noah-owens/SR-11-7-Model-Validation/actions/workflows/docstring-lint.yaml/badge.svg)](https://github.com/noah-owens/SR-11-7-Model-Validation/actions/workflows/docstring-lint.yaml)
 
 This project demonstrates how to validate a predictive model against the Federal Reserve’s SR 11-7 guidance. It intends to simulate a full model lifecycle — from documentation -> data integrity -> performance testing -> governance — using the publicly available LendingClub Loans dataset.
 
