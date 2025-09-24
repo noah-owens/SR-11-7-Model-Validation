@@ -1,0 +1,8 @@
+# environment files
+
+.env*
+__pycache__
+
+# datasets
+
+data/
