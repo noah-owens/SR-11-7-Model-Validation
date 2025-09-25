@@ -1,41 +1,41 @@
+import pandas as pd
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+RAW_ACCEPTED = "data/accepted_2007_to_2018Q4.csv"
+CACHE_ACCEPTED = "cache/accepted.parquet"
 
-def get_env_var(key: str) -> str:
-    """Pull value from .env based on provided key.
+RAW_REJECTED = "data/rejected_2007_to_2018Q4.csv"
+CACHE_REJECTED = "cache/rejected.parquet"
 
+def load_accepted(use_cache=True) -> pd.DataFrame:
+    """Read either data/csv or cache/parquet of accepted loan data into dataframe.
+    
     Args:
-        key (string): key to key-value pair in .env.
+        use_cache (boolean): If true, cached parquet format data is read into the df (improved speed)
 
     Returns:
-        string: the value from .env.
-
-    Raises:
-        EnvironmentError: If key is not present in .env.
+        DataFrame: A DataFrame object containing accepted loan data
     """
-    value = os.getenv(key)
-    if value is None:
-        raise EnvironmentError(f"Environment variable '{key}' is not set.")
-    return value
+    if use_cache and os.path.exists(CACHE_ACCEPTED):
+        return pd.read_parquet(CACHE_ACCEPTED)
+    
+    df = pd.read_csv(RAW_ACCEPTED, low_memory=False)
+    df.to_parquet(CACHE_ACCEPTED)
+    return df
 
-def validate_path(path: str) -> str:
-    """Determine if a provided filepath is valid.
-
+def load_rejected(use_cache=True) -> pd.DataFrame:
+    """Read either data/csv or cache/parquet of rejected loan data into dataframe.
+    
     Args:
-        path (string): filepath to be checked.
+        use_cache (boolean): If true, cached parquet format data is read into the df (improved speed)
 
     Returns:
-        path: valid filepath.
-
-    Raises:
-        FileNotFoundError: If path cannot be resolved.
+        DataFrame: A DataFrame object containing rejected loan data
     """
-    if not os.path.exists(path):
-        raise FileNotFoundError(f"File not found at {path}")
-    return path
+    if use_cache and os.path.exists(CACHE_REJECTED):
+        return pd.read_parquet(CACHE_REJECTED)
+    
+    df = pd.read_csv(RAW_REJECTED, low_memory=False)
+    df.to_parquet(CACHE_REJECTED)
 
-# Validated paths
-LENDING_CLUB_ACCEPTED = validate_path(get_env_var('LENDING_CLUB_ACCEPTED'))
-LENDING_CLUB_REJECTED = validate_path(get_env_var('LENDING_CLUB_REJECTED'))
+    return df
